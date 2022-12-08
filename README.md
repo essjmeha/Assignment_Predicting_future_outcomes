@@ -20,3 +20,15 @@ Probability of t-value is 0, so slope is significant.
 Age is not a useful variable to determine the number of loyalty points, and had no correlation.
 Individually, spending scores and renumeration are not enough to accurately predict loyalty points.
 Combining both using a multiple linear regression offered more accurate insights.  82.7% of loyalty points can be explained by a combination of renumeration and spending scores.  This is a strong correlation for predicting loyalty points. 
+50% of customers earn between £30.34k and £63.96k.  
+The mean spending score is 50 (out of 100). 
+The mean loyalty points is 1578 points.
+I used K clusters, as it is mainly used to unlabelled data.
+To determine the ideal number of clusters I used both the Elbow and silhouette methods and settled on 4 clusters.
+This was supported by using a pairplot that clearly showed 4 defined clusters.
+The biggest cluster is group 0 (red) with 994 customers (accounting for 50% of customers).
+The second biggest cluster is group 2 (blue) with 652 (32.6%) of customers
+The spending scores of group 0 is only slight better than group 2. Group 2 spending score is spread across the whole range. 
+How is the spending score calculated?  I've assumed it takes into account the total spends, how often they shop with Turtle Games, and their average spend per order.
+If these customers are shopping little and often Turtle Games could target these customers to slightly increase their spend. Something as simple as offering free delivery or extra loyalty points for their next x orders could permanently increased their spending habit.
+Within group 0 (the biggest cluster) most spending scoring is between 40 and 60 with loyalty points between 1000 and 2000. A campaign to encourage this group to place 1 extra order should increase their loyalty points, spending score, and Turtle Games overall sales for the season.
