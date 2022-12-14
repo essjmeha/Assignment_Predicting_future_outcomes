@@ -11,9 +11,9 @@ how reliable the data is (e.g. normal distribution, skewness, or kurtosis)?
 what the relationship(s) is/are (if any) between North American, European, and global sales? 
 45% of loyalty points can be explained by spending scores.
 If spending scores changes by one unit, loyalty points changed by 33 points.
-95% of the samples will derive a slope within the interval 31.464 and 34.659
+95% of the samples will derive a slope within the interval 31.464 and 34.659.
 Probability of t-value is 0, so slope is significant.
-38% of loyalty points can be explained by earnings
+38% of loyalty points can be explained by earnings.
 If earnings change by one unit, loyalty points changed by 33 points.
 95% of the samples will derive a slope within the interval 32.270 and 36.106
 Probability of t-value is 0, so slope is significant.
@@ -27,8 +27,21 @@ I used K clusters, as it is mainly used to unlabelled data.
 To determine the ideal number of clusters I used both the Elbow and silhouette methods and settled on 4 clusters.
 This was supported by using a pairplot that clearly showed 4 defined clusters.
 The biggest cluster is group 0 (red) with 994 customers (accounting for 50% of customers).
-The second biggest cluster is group 2 (blue) with 652 (32.6%) of customers
+The second biggest cluster is group 2 (blue) with 652 (32.6%) of customers.
 The spending scores of group 0 is only slight better than group 2. Group 2 spending score is spread across the whole range. 
 How is the spending score calculated?  I've assumed it takes into account the total spends, how often they shop with Turtle Games, and their average spend per order.
 If these customers are shopping little and often Turtle Games could target these customers to slightly increase their spend. Something as simple as offering free delivery or extra loyalty points for their next x orders could permanently increased their spending habit.
 Within group 0 (the biggest cluster) most spending scoring is between 40 and 60 with loyalty points between 1000 and 2000. A campaign to encourage this group to place 1 extra order should increase their loyalty points, spending score, and Turtle Games overall sales for the season.
+Most common words in the reviews include game, fun, one, play, like and love.
+The histogram for sentiment of online products reviews showed there are some outliers with -1 negative scores.
+I did not want to delete these, as further investigation is required. If these are for the same/similar products the buyers, quality control, manufacturers use the information to improve the product/range; it could also explain why a product is selling poorly (if the first could of reviews are negative it push everyone else off purchasing).
+Overall, polarity scores are positives!  50% of the scores fall between 0.05 and 0.35, with a mean of 0.21.
+Sentiment scores are postive. 50% of the scores fall between 0 and 0.48, with a mean of 0.22.  
+Even though there are more neutral scores, overall, the summaries are more positive than the reviews! 
+Over 800 neutral summaries, compared to under 500 neutral reviews.
+Is there potential to improve sales further if these netural summaries reflect the reviews?
+The subjectivity of the summary is weighted toward 0, suggesting that the customers are focusing on facts, rather than opinion.
+Doesn’t take the expected bell shape I was expecting.
+Further investigation showed that these summaries are short and concise, with over half stating “five stars”.
+I also discovered that this model does not recognise that “five stars” is actually a very positive review! This could also explain the jagged levels on the polarity summary.  The polarity and sentiment of the summaries is to be taken with a pince of salt.
+
