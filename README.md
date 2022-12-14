@@ -44,4 +44,26 @@ The subjectivity of the summary is weighted toward 0, suggesting that the custom
 Doesn’t take the expected bell shape I was expecting.
 Further investigation showed that these summaries are short and concise, with over half stating “five stars”.
 I also discovered that this model does not recognise that “five stars” is actually a very positive review! This could also explain the jagged levels on the polarity summary.  The polarity and sentiment of the summaries is to be taken with a pince of salt.
+The histogram showed globally, over 200 lines did up to £5m.  The bulk of lines fell in this backet. I know from Excel that 18% of lines accounted for 50% of sales!
+Suggesting there is alot of skues not earning their keep and could be discontinued. 
+I need to find out how to create a chart or table that clearly showed this.
+Using the boxplot, on global sales you can see a number of outliers near the 0 lines that should potentially be discontinued. 
+Turtle Games should also consider worst/best sellers by region.  
+Actions taken to increase sales, need to consider the sales history of that region, and if it makes sense to be applied to all or selected regions.
+The 2600 game sells well in the US but is one of the worst selling games in EU! 
+Reducing option count could potentially reduce the cost of warehouse space.  
+Reducing option count also means the site would be less cluttered and easier to browd (potentially increasing sales).
+Reducing the number of worst sellers means more space (both in the warehouse and online) for better and/or new games.
+US had more outliers highlighting best sellers.  
+Are there any lessons to be learnt that can be applied to other regions?
+Is there a reason for the high sales?  Was it on promotion/sale?  Did it receive extra marketing or listed in a premium location of the website in both regions? 
+Would be helpful if I could have access to margins by line by region. 
+To increase sales, could Turtle Games offer these best selling games for other consoles?  
+Are there expansion packs, sequels or spin offs due to be released? 
+Focusing on best selling games could increase Turtle Games buying power and also reduced costs.
+As a manufacturer, as well as retailer, are there other merchandise Turtle Games could develop this licence for? 
+Increase sales by offering household goods such as duvets, or clothes such as T-shirts!  This could potentially increase the average customer spend, and how often they shop with Turtle Games.
+
+
+
 
