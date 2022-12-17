@@ -68,6 +68,7 @@ Heavy right tailed distribution.
 postitive correlation between how long something has been on sale and actual sales.
 What is the time frame of sales?  Are the older lines (smaller item numbers) performing better because they have been on sale longer?  
 Or are they performing better because they are long standing best sellers (such as Minecraft and Grand Theft Auto) and continue to be best sellers year after year?
+There does not appear to be a colelation between the year the game was release and the product number. 
 Number of products performing better than average
 With the exception of sport,EU and NA follow similar sales mix across the genres
 More sales in NA, but potential to increase sales in EU. 
