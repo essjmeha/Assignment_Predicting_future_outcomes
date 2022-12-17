@@ -352,6 +352,60 @@ ggplot(data3,
   facet_wrap(~Year)
 
 
+# Scatterplot EU and NA sales (exuding outliers)
+ggplot(data = data3,
+       mapping = aes(x = NA_Sales, y = EU_Sales)) +
+  geom_point(color = 'red', alpha = 0.5, size = 1.5) +
+  
+  # Add the line-of-best-fit to the plot.
+  geom_smooth(method = 'lm')+
+  
+  # Add a title
+  labs(title="Relationship between EU amd MA sales for each product 
+       (excluding outliers)")
+
+# percentage global sales by platform Bar chart 
+
+ggplot(data=data2, aes(x=Platform, y=Global_Sales)) +
+  geom_bar(stat='identity') +
+  scale_y_continuous(labels = scales::percent)+
+  labs(x = "Platform",
+       y = "Global sales %",
+       title = "Global Sales % by platform")+
+  # Flip the x-axis and y-axis.
+  coord_flip()
+
+
+
+# percentage global sales by genre Bar chart 
+ggplot(data=data, aes(x=Genre, y=Global_Sales)) +
+  geom_bar(stat='identity') +
+  scale_y_continuous(labels = scales::percent)+
+  labs(x = "Genre",
+       y = "Global sales %",
+       title = "Global Sales % by Genre")+
+  # Flip the x-axis and y-axis.
+  coord_flip()
+
+# percentage EU sales by genre Bar chart 
+ggplot(data=data, aes(x=Genre, y=EU_Sales)) +
+  geom_bar(stat='identity') +
+  scale_y_continuous(labels = scales::percent)+
+  labs(x = "Genre",
+       y = "EU sales %",
+       title = "EU Sales % by Genre")+
+  # Flip the x-axis and y-axis.
+  coord_flip()
+
+# percentage NA sales by genre Bar chart 
+ggplot(data=data, aes(x=Genre, y=NA_Sales)) +
+  geom_bar(stat='identity') +
+  scale_y_continuous(labels = scales::percent)+
+  labs(x = "Genre",
+       y = "NA sales %",
+       title = "NA Sales % by Genre")+
+  # Flip the x-axis and y-axis.
+  coord_flip()
 
 ###############################################################################
 
@@ -365,7 +419,9 @@ ggplot(data3,
 # The longer it has been on sale the higher the sales.  
 # product that fall above the line would suggest these are worth investing in 
 # a larger range (more consols, explansion packs, merchandise).
-# To ensure the right level of stock investment you need to view recent sales. 
+# To ensure the right level of stock investment you need to view recent sales.
+# With the exception of sport,
+# EU and NA follow similar sales mix across the genres
 
 
 ###############################################################################
