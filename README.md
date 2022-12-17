@@ -63,7 +63,14 @@ Are there expansion packs, sequels or spin offs due to be released?
 Focusing on best selling games could increase Turtle Games buying power and also reduced costs.
 As a manufacturer, as well as retailer, are there other merchandise Turtle Games could develop this licence for? 
 Increase sales by offering household goods such as duvets, or clothes such as T-shirts!  This could potentially increase the average customer spend, and how often they shop with Turtle Games.
-
+Not normally distributed
+Heavy right tailed distribution.
+postitive correlation between how long something has been on sale and actual sales.
+What is the time frame of sales?  Are the older lines (smaller item numbers) performing better because they have been on sale longer?  
+Or are they performing better because they are long standing best sellers (such as Minecraft and Grand Theft Auto) and continue to be best sellers year after year?
+Number of products performing better than average
+With the exception of sport,EU and NA follow similar sales mix across the genres
+More sales in NA, but potential to increase sales in EU. 
 
 
 
