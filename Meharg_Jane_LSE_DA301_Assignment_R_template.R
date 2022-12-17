@@ -82,7 +82,6 @@ qplot(Platform, NA_Sales, data=data2)
 qplot(Platform, EU_Sales, data=data2)
 
 
-
 ## 2b) Histograms
 # Create histograms.
 plot(hist(data2$Global_Sales))
@@ -183,8 +182,27 @@ View(data2)
 
 # Check output: Determine the min, max, and mean values.
 
+# Min NA, EU and Global sales
+min(data2$NA_Sales)  
+min(data2$EU_Sales)
+min(data2$Global_Sales)
+   
+# Max NA, EU and Global sales     
+max(data2$NA_Sales)  
+max(data2$EU_Sales)
+max(data2$Global_Sales)
+
+# Mean NA, EU and Global sales
+mean(data2$NA_Sales)  
+mean(data2$EU_Sales)
+mean(data2$Global_Sales)
 
 # View the descriptive statistics.
+summary(data2)
+
+# Create Data Profiling Report
+DataExplorer::create_report(data2)
+
 
 
 ###############################################################################
@@ -193,23 +211,47 @@ View(data2)
 
 ## 2a) Use the group_by and aggregate functions.
 # Group data based on Product and determine the sum per Product.
-
+product_global_sale <- aggregate(Global_Sales~Product, data2, sum)
+product_NA_sale <- aggregate(NA_Sales~Product, data2, sum)
+product_EU_sale <- aggregate(EU_Sales~Product, data2, sum)
 
 # View the data frame.
+product_global_sale
+product_NA_sale
+product_EU_sale
 
+# Explore the dataframe.
+# Summary of each new dataframe
+summary(product_global_sale)
+summary(product_NA_sale)
+summary(product_EU_sale)
 
-# Explore the data frame.
-
-
+# create report for each new dataframe
+DataExplorer::create_report(product_global_sale)
+DataExplorer::create_report(product_NA_sale)
+DataExplorer::create_report(product_EU_sale)
 
 ## 2b) Determine which plot is the best to compare game sales.
 # Create scatterplots.
 
+qplot(Product, Global_Sales, data=product_global_sale)
+qplot(Product, NA_Sales, data=product_NA_sale)
+qplot(Product, EU_Sales, data=product_EU_sale)
 
 # Create histograms.
 
+plot(hist(product_gobal_sale$Global_Sales))
+plot(hist(product_NA_sale$NA_Sales))
+plot(hist(product_EU_sale$EU_Sales))
+
+
+
 
 # Create boxplots.
+
+qplot(Product, Global_Sales, data=product_global_sale, geom='boxplot')
+qplot(Product, NA_Sales, data=product_NA_sale, geom='boxplot')
+qplot(Product, EU_Sales, data=product_EU_sale, geom='boxplot')
 
 
 ###############################################################################
@@ -219,24 +261,33 @@ View(data2)
 
 ## 3a) Create Q-Q Plots
 # Create Q-Q Plots.
+qqnorm(product_gobal_sale$Global_Sales)
+qqline(product_gobal_sale$Global_Sales)
 
 
 
 ## 3b) Perform Shapiro-Wilk test
 # Install and import Moments.
 
+install.packages('moments') 
+library(moments)
 
 # Perform Shapiro-Wilk test.
 
-
+shapiro.test(product_gobal_sale$Global_Sales)
 
 ## 3c) Determine Skewness and Kurtosis
-# Skewness and Kurtosis.
+# Skewness. 
 
+skewness(product_gobal_sale$Global_Sales)
 
+# Kurtosis.
+kurtosis(product_gobal_sale$Global_Sales)
 
 ## 3d) Determine correlation
 # Determine correlation.
+
+cor(product_gobal_sale$Global_Sales, product_gobal_sale$Product)
 
 
 ###############################################################################
@@ -247,11 +298,74 @@ View(data2)
 # to investigate. Explain your answer in your report.
 
 
+# Scatterplot to indicate relation between global sales and product.
+ggplot(data = product_global_sale,
+       mapping = aes(x = Product, y = Global_Sales)) +
+  geom_point(color = 'red', alpha = 0.5, size = 1.5) +
+  
+  # Add the line-of-best-fit to the plot.
+  geom_smooth(method = 'lm')
+
+
+# Scatterplot to indicate relation between global sales and product
+# without outliers.
+
+# Create a new dataframe without  outliers
+new_data <- filter(product_global_sale, Global_Sales<25)
+
+# Scatterplot new dataframe
+ggplot(data = new_data,
+       mapping = aes(x = Product, y = Global_Sales)) +
+  geom_point(color = 'red', alpha = 0.5, size = 1.5) +
+  
+  # Add the line-of-best-fit to the plot.
+  geom_smooth(method = 'lm')+
+  
+  # Add a title
+  labs(title="Relationship between Global sales and Product ID")
+
+
+# Scatterplot compare EU and NA sales by platform without outiers
+data3 <- filter(data, Global_Sales<25)
+
+
+ggplot(data3,
+       mapping=aes(x=NA_Sales, y=EU_Sales)) +
+  geom_point(color='red',
+             alpha=0.75,
+             size=2.5) +
+  scale_x_continuous("NA Sales") +
+  scale_y_continuous("EU Sales") +
+  labs(title="Sales by region and Plaform") + 
+  facet_wrap(~Platform)
+
+# Scatterplot compare EU and NA sales by year without outiers
+# check is older sames sold more/less
+ggplot(data3,
+       mapping=aes(x=NA_Sales, y=EU_Sales)) +
+  geom_point(color='red',
+             alpha=0.75,
+             size=2.5) +
+  scale_x_continuous("NA Sales") +
+  scale_y_continuous("EU Sales") +
+  labs(title="Sales by region and Plaform") + 
+  facet_wrap(~Year)
+
+
+
 ###############################################################################
 
 # 5. Observations and insights
 # Your observations and insights here...
 
+# Not normally distributed.
+# Heavy right tailed
+# a negative correlation
+# Assuming the lower the product number the older the product.
+# The longer it has been on sale the higher the sales.  
+# product that fall above the line would suggest these are worth investing in 
+# a larger range (more consols, explansion packs, merchandise).
+# To ensure the right level of stock investment you need to view recent sales. 
 
 
 ###############################################################################
