@@ -272,23 +272,45 @@ qqline(product_gobal_sale$Global_Sales)
 install.packages('moments') 
 library(moments)
 
-# Perform Shapiro-Wilk test.
 
-shapiro.test(product_gobal_sale$Global_Sales)
+# Perform Shapiro-Wilk test - Global Sales
+shapiro.test(product_global_sale$Global_Sales)
+
+# Perform Shapiro-Wilk test - EU Sales
+shapiro.test(product_EU_sale$EU_Sales)
+
+# Perform Shapiro-Wilk test - NA Sales
+shapiro.test(product_NA_sale$NA_Sales)
 
 ## 3c) Determine Skewness and Kurtosis
-# Skewness. 
+# Skewness - Global Sales
+skewness(product_global_sale$Global_Sales)
 
-skewness(product_gobal_sale$Global_Sales)
+# Skewness - EU
+skewness(product_EU_sale$EU_Sales)
 
-# Kurtosis.
-kurtosis(product_gobal_sale$Global_Sales)
+# Skewness - NA
+skewness(product_NA_sale$NA_Sales)
+
+# Kurtosis - Global Sales
+kurtosis(product_global_sale$Global_Sales)
+
+# Kurtosis - EU
+kurtosis(product_EU_sale$EU_Sales)
+
+# Kurtosis - NA
+kurtosis(product_NA_sale$NA_Sales)
 
 ## 3d) Determine correlation
-# Determine correlation.
 
-cor(product_gobal_sale$Global_Sales, product_gobal_sale$Product)
+# Determine correlation - Global Sales
+cor(product_global_sale$Global_Sales, product_global_sale$Product)
 
+# Determine correlation - EU Sales
+cor(product_EU_sale$EU_Sales, product_EU_sale$Product)
+
+# Determine correlation - NA Sales
+cor(product_NA_sale$NA_Sales, product_NA_sale$Product)
 
 ###############################################################################
 
@@ -463,12 +485,14 @@ ggplot(data=data, aes(x=Genre, y=NA_Sales)) +
 
 ###############################################################################
 
-# 1. Load and explor the data
+# 1. Load and explore the data
 # View data frame created in Week 5.
 
+data3 <- select(data2, -Platform)
+head(data3)
 
 # Determine a summary of the data frame.
-
+summary(data3)
 
 ###############################################################################
 
@@ -476,10 +500,44 @@ ggplot(data=data, aes(x=Genre, y=NA_Sales)) +
 ## 2a) Determine the correlation between columns
 # Create a linear regression model on the original data.
 
+cor(data3)
 
+# Visualised correlation
+# Install the psych package.
+install.packages('psych')
+
+# Import the psych package.
+library(psych)
+
+corPlot(data3, cex=2)
 
 ## 2b) Create a plot (simple linear regression)
-# Basic visualisation.
+# remove outliers
+data3 <- filter(data3, Global_Sales<25)
+
+# Basic visualisation - model 1 _ NA.
+
+plot(data3$Global_Sales , data3$NA_Sales)
+
+model1 <- lm(NA_Sales~Global_Sales,
+             data=data3)
+
+# View
+model1 
+
+# Summary
+summary(model1)
+
+# Basic visualisation - model 2 EU_Sales.
+
+plot(data3$Global_Sales , data3$EU_Sales)
+
+model2 <- lm(EU_Sales~Global_Sales,
+             data=data3)
+
+model2
+
+summary(model2)
 
 
 ###############################################################################
@@ -487,14 +545,47 @@ ggplot(data=data, aes(x=Genre, y=NA_Sales)) +
 # 3. Create a multiple linear regression model
 # Select only numeric columns from the original data frame.
 
+head(data3)
+
 
 # Multiple linear regression model.
+# Model A
+# x = EU_Sales and NA_Sales
+# y = Global_sales
 
+modela = lm(Global_Sales~EU_Sales+NA_Sales, data=data3)
+
+# Print the summary statistics.
+summary(modela)
+
+# Model B
+# x = EU_Sales and NA_Sales and Product
+# y = Global_sales
+
+modelb = lm(Global_Sales~EU_Sales+NA_Sales, Product, data=data3)
+
+# Print the summary statistics.
+summary(modelb)
 
 ###############################################################################
 
 # 4. Predictions based on given values
 # Compare with observed values for a number of records.
+
+# Create a new dataframe with observed values
+data_predict <- data.frame(NA_Sales=c(34.02, 3.93, 2.73, 2.26, 22.08),
+                           EU_Sales=c(23.8, 1.56, 0.65, 0.97, 0.52))
+
+# View the new dataframe
+
+str(data_predict)
+
+# Create a new object and specify the predict function.
+predictTest = predict(modelb, newdata=data_predict,
+                      interval='confidence')
+
+# Print the object.
+predictTest 
 
 
 
@@ -502,6 +593,17 @@ ggplot(data=data, aes(x=Genre, y=NA_Sales)) +
 
 # 5. Observations and insights
 # Your observations and insights here...
+
+# high positive correlations between NA_Sales and Global_Sales
+# high positive correlations between EU_Sales and Global_Sales
+# Correlation between product code and sales between -0.41 and -0.46.
+# Linear regression models using NA sales to predict Global sales
+# has Adjusted R Squared os 0.81.
+# 81% of global sales could be predicted by NA sales.
+# This is a good accuracy model.  
+# With multile linear regression (model B) produced an 
+# Adjusted R Squared of 0.99
+# Used NA Sales, EU Sales and product for max accurately.
 
 
 
