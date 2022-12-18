@@ -72,6 +72,11 @@ There does not appear to be a colelation between the year the game was release a
 Number of products performing better than average
 With the exception of sport,EU and NA follow similar sales mix across the genres
 More sales in NA, but potential to increase sales in EU. 
-
+High positive correlations between NA_Sales and Global_Sales.
+High positive correlations between EU_Sales and Global_Sales.
+Correlation between product code and sales between -0.41 and -0.46.
+Linear regression models using NA sales to predict Global sales has Adjusted R Squared os 0.81.
+81% of global sales could be predicted by NA sales.  This is a good accuracy model.  
+With multiple linear regression (model B) produced an Adjusted R Squared of 0.99.  Used NA Sales, EU Sales and product for this model.
 
 
