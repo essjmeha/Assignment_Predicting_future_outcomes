@@ -10,11 +10,11 @@ the impact that each product has on sales?
 how reliable the data is (e.g. normal distribution, skewness, or kurtosis)?
 what the relationship(s) is/are (if any) between North American, European, and global sales? 
 45% of loyalty points can be explained by spending scores.
-If spending scores changes by one unit, loyalty points changed by 33 points.
+If spending scores changes by one unit, loyalty points changed by 33points.
 95% of the samples will derive a slope within the interval 31.464 and 34.659.
 Probability of t-value is 0, so slope is significant.
 38% of loyalty points can be explained by earnings.
-If earnings change by one unit, loyalty points changed by 33 points.
+If earnings change by one unit, loyalty points changed by 34 points.
 95% of the samples will derive a slope within the interval 32.270 and 36.106
 Probability of t-value is 0, so slope is significant.
 Age is not a useful variable to determine the number of loyalty points, and had no correlation.
