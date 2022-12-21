@@ -238,9 +238,10 @@ qplot(Product, Global_Sales, data=product_global_sale)
 qplot(Product, NA_Sales, data=product_NA_sale)
 qplot(Product, EU_Sales, data=product_EU_sale)
 
+
 # Create histograms.
 
-plot(hist(product_gobal_sale$Global_Sales))
+plot(hist(product_global_sale$Global_Sales))
 plot(hist(product_NA_sale$NA_Sales))
 plot(hist(product_EU_sale$EU_Sales))
 
@@ -261,8 +262,8 @@ qplot(Product, EU_Sales, data=product_EU_sale, geom='boxplot')
 
 ## 3a) Create Q-Q Plots
 # Create Q-Q Plots.
-qqnorm(product_gobal_sale$Global_Sales)
-qqline(product_gobal_sale$Global_Sales)
+qqnorm(product_global_sale$Global_Sales)
+qqline(product_global_sale$Global_Sales)
 
 
 
@@ -383,7 +384,7 @@ ggplot(data = data3,
   geom_smooth(method = 'lm')+
   
   # Add a title
-  labs(title="Relationship between EU amd MA sales for each product 
+  labs(title="Relationship between EU amd NA sales for each product 
        (excluding outliers)")
 
 # percentage global sales by platform Bar chart 
@@ -601,7 +602,7 @@ predictTest
 # has Adjusted R Squared os 0.81.
 # 81% of global sales could be predicted by NA sales.
 # This is a good accuracy model.  
-# With multile linear regression (model B) produced an 
+# With multiple linear regression (model B) produced an 
 # Adjusted R Squared of 0.99
 # Used NA Sales, EU Sales and product for max accurately.
 
